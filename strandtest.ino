@@ -1,4 +1,7 @@
 
+//test leds only without clock 
+bool test = false;
+
 // declare current time in four digits. HHMM
 String currentTime="1407";
 
@@ -48,7 +51,23 @@ void setup()
 }
 
 
+
 void loop() {
+
+  if (test) {
+    int row4[] = {led1, led2, led3, led4, led5, led6, led7, led8, led9, led10, led11, led12, led13};
+  // Loop over the LED pins and turn them on one by one
+  for (int i = 0; i < 13; i++) {
+    digitalWrite(row4[i], HIGH);
+    delay(200);
+  }
+
+  // Turn off all the LED pins
+  for (int i = 0; i < 13; i++) {
+    digitalWrite(row4[i], LOW);
+  }
+    return;
+  }
  
   unsigned long myTime = millis()+ hoursMillis + minutesMillis;
   int hours = (myTime / 3600000) % 24; // 1 hour = 3600000 milliseconds
